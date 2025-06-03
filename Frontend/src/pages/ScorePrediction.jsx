@@ -59,7 +59,7 @@ export default function ScorePrediction() {
 
     try {
       const { data } = await axios.post(
-        'http://127.0.0.1:5000/predict-score',
+        `${import.meta.env.VITE_BACKEND_URL}/predict-score`,
         {
           batting_team: batForBackend,
           bowling_team: bowlForBackend,
