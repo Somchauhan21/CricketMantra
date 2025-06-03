@@ -77,7 +77,7 @@ export default function WinnerPrediction() {
 
     try {
       const { data } = await axios.post(
-        'http://127.0.0.1:5000/predict-winner',
+        `${import.meta.env.VITE_BACKEND_URL}/predict-winner`,
         payload
       );
       setPrediction(data);
