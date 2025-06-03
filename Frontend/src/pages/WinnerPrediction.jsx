@@ -1,4 +1,4 @@
-// src/pages/WinnerPrediction.jsx
+// frontend/src/pages/WinnerPrediction.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
@@ -7,7 +7,7 @@ import './WinnerPrediction.css';
 
 const displayTeams = [
   'Chennai Super Kings',
-  'Delhi Capitals',               
+  'Delhi Capitals',
   'Punjab Kings',
   'Kolkata Knight Riders',
   'Mumbai Indians',
@@ -26,12 +26,23 @@ const cities = [
   'Abu Dhabi','Sharjah','Mohali'
 ];
 
-// Friendly → model names
+// Friendly → model team‐name conversions
 const backendTeamMap = {
   'Delhi Capitals':         'Delhi Daredevils',
   'Punjab Kings':           'Kings XI Punjab',
   'Gujarat Titans':         'Chennai Super Kings',
   'Lucknow Super Giants':   'Kings XI Punjab'
+};
+
+// Friendly → model city‐name conversions (add or override as needed)
+const backendCityMap = {
+  // If the model expects exactly "Ahmedabad", this maps it correctly.
+  // If your backend expects a different string, change the right‐hand side.
+  'Ahmedabad': 'Mumbai',
+  // Example: if backend needed lowercase or a code (uncomment and adapt):
+  // 'Dubai': 'dubai_code',
+  // 'Sharjah': 'Sharjah',
+  // You can add more overrides here if the backend’s expected city name differs.
 };
 
 export default function WinnerPrediction() {
@@ -49,30 +60,43 @@ export default function WinnerPrediction() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
 
-  // splash-screen loader
+  // Splash‐screen loader
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 800);
     return () => clearTimeout(t);
   }, []);
 
   const handleChange = e => {
-    setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setForm(f => ({ ...f, [name]: value }));
   };
 
   const handleSubmit = async () => {
-    // prevent same‐team
+    // Prevent same‐team selection
     if (form.batting_team === form.bowling_team) {
       setError("Batting and bowling teams must differ");
+      return;
+    }
+    if (!form.city) {
+      setError("Please select a city");
       return;
     }
     setError('');
     setSubmitting(true);
 
-    // remap display → backend
+    // Remap display → backend for teams and city
     const payload = {
-      ...form,
+      // Team name remaps
       batting_team: backendTeamMap[form.batting_team] || form.batting_team,
-      bowling_team: backendTeamMap[form.bowling_team] || form.bowling_team
+      bowling_team: backendTeamMap[form.bowling_team] || form.bowling_team,
+
+      // City remap (Ahmedabad or any other override)
+      city: backendCityMap[form.city] || form.city,
+
+      target: form.target,
+      score: form.score,
+      overs: form.overs,
+      wickets: form.wickets
     };
 
     try {
@@ -82,7 +106,7 @@ export default function WinnerPrediction() {
       );
       setPrediction(data);
     } catch (e) {
-      console.error(e);
+      console.error("Prediction error:", e.response || e);
       setError('Failed to fetch prediction. Please check inputs/backend.');
       setPrediction(null);
     } finally {
@@ -114,6 +138,7 @@ export default function WinnerPrediction() {
 
         {/* 📝 The form */}
         <div className="form-section">
+          {/* TEAM & CITY SELECTORS */}
           {['batting_team','bowling_team','city'].map(field => (
             <div className="input-row" key={field}>
               <label>
@@ -126,13 +151,14 @@ export default function WinnerPrediction() {
                 disabled={submitting}
               >
                 <option value="">Select</option>
-                {(field==='city' ? cities : displayTeams).map(opt => (
+                {(field === 'city' ? cities : displayTeams).map(opt => (
                   <option key={opt} value={opt}>{opt}</option>
                 ))}
               </select>
             </div>
           ))}
 
+          {/* NUMERIC INPUTS */}
           {['target','score','overs','wickets'].map(field => (
             <div className="input-row" key={field}>
               <label>
@@ -149,6 +175,7 @@ export default function WinnerPrediction() {
             </div>
           ))}
 
+          {/* PREDICT BUTTON */}
           <button
             className="predict-btn"
             onClick={handleSubmit}
@@ -157,9 +184,10 @@ export default function WinnerPrediction() {
             {submitting ? 'Predicting…' : '⚡ Predict Winner'}
           </button>
 
+          {/* ERROR MESSAGE */}
           {error && <p className="error">{error}</p>}
 
-          {/* ◀️ Use the **form** values for display, never the model’s echoed names */}
+          {/* PREDICTION RESULT */}
           {prediction && (
             <div className="prediction-result">
               <h3>Prediction Summary:</h3>
