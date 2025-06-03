@@ -6,7 +6,7 @@ import pandas as pd
 import requests
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://cricketmantra-617n.onrender.com"])
 
 # Load models
 with open("models/winner_model.pkl", "rb") as f:
