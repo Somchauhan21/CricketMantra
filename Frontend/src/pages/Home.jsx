@@ -14,9 +14,9 @@
 //     const fetchData = async () => {
 //       try {
 //         const [upcomingRes, liveRes, currentRes] = await Promise.all([
-//           axios.get('http://localhost:5000/api/upcoming-matches'),
-//           axios.get('http://localhost:5000/api/live-scores'),
-//           axios.get('http://localhost:5000/api/current-matches'),
+//           axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/upcoming-matches`),
+//           axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/live-scores`),
+//           axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/current-matches`),
 //         ]);
 
 //         setUpcomingMatches(upcomingRes.data);
