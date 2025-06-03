@@ -110,9 +110,9 @@ export default function Home() {
     (async () => {
       try {
         const [upRes, liveRes, compRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/upcoming-matches'),
-          axios.get('http://localhost:5000/api/live-scores'),
-          axios.get('http://localhost:5000/api/current-matches'),
+          axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/upcoming-matches`),
+          axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/live-scores`),
+          axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/current-matches`),
         ]);
         const now = Date.now();
         const upcoming = upRes.data
