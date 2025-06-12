@@ -125,8 +125,7 @@ npm run dev
 Open your browser to http://localhost:5173 to view CricketMantra!
 
 📂 Project Structure
-lua
-Copy
+```bash
 CricketMantra/
 ├── backend/
 │   ├── app.py
@@ -150,6 +149,7 @@ CricketMantra/
 ├── .gitignore
 ├── README.md
 └── LICENSE
+```
 🎉 Enjoy & Contribute
 Feel free to explore, give feedback, or open issues if you find bugs. If you’d like to extend the models or improve the UI, forks and Pull Requests are very welcome!
 
