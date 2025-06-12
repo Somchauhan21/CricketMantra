@@ -24,6 +24,10 @@
   Hosted on Render; you push code, it scales automatically.
 
 ---
+## Demo
+
+[![Watch the demo](frontend/src/assets/main video.mp4)](frontend/src/assets/main video.mp4)
+
 
 ## 🛠️ Tech Stack
 
