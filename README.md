@@ -26,7 +26,7 @@
 ---
 ## Demo
 
-[![Watch the demo](frontend/src/assets/video.png)](frontend/src/assets/main%20video.mp4)
+[![Watch the demo](https://github.com/Somchauhan21/CricketMantra/blob/91ed3a1ab709c26b7e32fe84d6883b3bd17b612b/Frontend/src/assets/video.png)](https://github.com/Somchauhan21/CricketMantra/blob/91ed3a1ab709c26b7e32fe84d6883b3bd17b612b/Frontend/src/assets/main%20video.mp4)
 
 
 
