@@ -24,9 +24,15 @@
   Hosted on Render; you push code, it scales automatically.
 
 ---
-## Demo
+## Demo screenshot
 
-[![Watch the demo](https://github.com/Somchauhan21/CricketMantra/blob/91ed3a1ab709c26b7e32fe84d6883b3bd17b612b/Frontend/src/assets/video.png)](https://github.com/Somchauhan21/CricketMantra/blob/91ed3a1ab709c26b7e32fe84d6883b3bd17b612b/Frontend/src/assets/main%20video.mp4)
+[![Watch the demo](https://github.com/Somchauhan21/CricketMantra/blob/91ed3a1ab709c26b7e32fe84d6883b3bd17b612b/Frontend/src/assets/video.png)]
+
+---
+## Demo video
+
+www.linkedin.com/posts/som-chauhan-43a112221_ipl2025-cricketprediction-machinelearning-activity-7335688681250279426-FpXP?utm_source=share&utm_medium=member_desktop&rcm=ACoAADe5PO4B9dSTxvlWe-ErhYbyA7lCtyM8D4U
+
 
 
 
