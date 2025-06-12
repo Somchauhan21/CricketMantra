@@ -1,8 +1,8 @@
 # CricketMantra
 
-**CricketMantra** is a real-time IPL (Indian Premier League) prediction platform—built for cricket fans who want live analytics on match outcomes and final scores. Powered by machine learning (scikit-learn) on the backend (Flask) and a dynamic React frontend, CricketMantra gives you winner-probability and score forecasts at the click of a button.
+**Live IPL Prediction Platform** – Winner & Score forecasts backed by ML, with a React UI and Flask API.
 
-Live demo: https://cricketmantra-617n.onrender.com
+**Live demo:** https://cricketmantra-617n.onrender.com
 
 ---
 
@@ -17,33 +17,33 @@ Live demo: https://cricketmantra-617n.onrender.com
 - **Match Dashboard**  
   Tabbed view of Upcoming, Live, and Completed matches—so you never miss a moment.
 
-- **Parallax Hero & Animations**  
-  Interactive UI with parallax hero section and animated cards to keep you engaged.
+- **Interactive UI**  
+  Parallax hero section, animated tabs and cards, and seamless React-Flask integration.
 
-- **Easy Deployment**  
-  Deployed on Render for zero-devops overhead—just push your code and it scales automatically.
+- **Zero-DevOps Deployment**  
+  Hosted on Render; you push code, it scales automatically.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer        | Technology            |
-| ------------ | --------------------- |
-| **Backend**  | Python, Flask         |
-| **ML Models**| scikit-learn, pickle  |
-| **Frontend** | React, Vite           |
-| **Styling**  | CSS animations        |
-| **Deployment** | Render              |
-| **Versioning** | Git & Git LFS        |
+| Layer         | Technology            |
+| ------------- | --------------------- |
+| **Backend**   | Python, Flask         |
+| **ML Models** | scikit-learn, pickle  |
+| **Frontend**  | React, Vite           |
+| **Styling**   | CSS animations        |
+| **Deployment**| Render                |
+| **Versioning**| Git & Git LFS         |
 
 ---
 
 ## 📋 Prerequisites
 
 - **Node.js** v16 or higher  
-- **npm** (comes with Node)  
+- **npm** (comes with Node.js)  
 - **Python** 3.8 or higher  
-- **pip** (Python package manager)  
+- **pip** (Python package manager)
 
 ---
 
@@ -54,19 +54,29 @@ Live demo: https://cricketmantra-617n.onrender.com
 ```bash
 git clone https://github.com/Somchauhan21/CricketMantra.git
 cd CricketMantra
+
+
+## ⚙️ Installation & Setup
+
+## 1. Clone the repository
+
+```bash
+git clone https://github.com/Somchauhan21/CricketMantra.git
+cd CricketMantra
+
 2. Install Git LFS & pull models
 We use Git LFS to store the large .pkl model files.
 
-bash
-Copy
+```bash
 # Install Git LFS (one-time per machine)
 git lfs install
 
 # Fetch LFS objects (your model .pkl files)
 git lfs pull
+
+
 3. Backend setup
-bash
-Copy
+```bash
 cd backend
 
 # Create and activate a Python virtual environment
@@ -77,6 +87,7 @@ venv\Scripts\activate
 source venv/bin/activate
 
 # Install dependencies
+```bash
 pip install -r requirements.txt
 
 # (Optional) Create a .env file in backend/ if you need to override defaults
@@ -84,22 +95,25 @@ pip install -r requirements.txt
 # FLASK_RUN_PORT=5000
 
 # Run the Flask API
+```bash
 flask run
 # By default, it runs on http://127.0.0.1:5000
 4. Frontend setup
+```bash
 In a new terminal:
 
-bash
-Copy
+```bash
 cd ../frontend
 
 # Install dependencies
+```bash
 npm install
 
 # If you want to point to a custom API URL, create .env in frontend/:
 # REACT_APP_API_URL=http://localhost:5000
 
 # Run the React dev server
+```bash
 npm run dev
 # The app opens at http://localhost:5173
 Open your browser to http://localhost:5173 to view CricketMantra!
