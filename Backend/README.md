@@ -78,18 +78,23 @@ git lfs pull
 3. Backend setup
 ```bash
 cd backend
-
+```
 # Create and activate a Python virtual environment
+```bash
 python -m venv venv
+```
 # Windows
+```bash
 venv\Scripts\activate
+```
 # macOS/Linux
+```bash
 source venv/bin/activate
-
+```
 # Install dependencies
 ```bash
 pip install -r requirements.txt
-
+```
 # (Optional) Create a .env file in backend/ if you need to override defaults
 # For example, to run on a custom port:
 # FLASK_RUN_PORT=5000
@@ -97,24 +102,25 @@ pip install -r requirements.txt
 # Run the Flask API
 ```bash
 flask run
+```
 # By default, it runs on http://127.0.0.1:5000
 4. Frontend setup
-```bash
 In a new terminal:
 
 ```bash
 cd ../frontend
-
+```
 # Install dependencies
 ```bash
 npm install
-
+```
 # If you want to point to a custom API URL, create .env in frontend/:
 # REACT_APP_API_URL=http://localhost:5000
 
 # Run the React dev server
 ```bash
 npm run dev
+```
 # The app opens at http://localhost:5173
 Open your browser to http://localhost:5173 to view CricketMantra!
 
