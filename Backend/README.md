@@ -54,7 +54,7 @@
 ```bash
 git clone https://github.com/Somchauhan21/CricketMantra.git
 cd CricketMantra
-
+```
 
 ## ⚙️ Installation & Setup
 
@@ -63,14 +63,14 @@ cd CricketMantra
 ```bash
 git clone https://github.com/Somchauhan21/CricketMantra.git
 cd CricketMantra
-```bash
+```
 2. Install Git LFS & pull models
 We use Git LFS to store the large .pkl model files.
 
-```bash
 # Install Git LFS (one-time per machine)
+```bash
 git lfs install
-
+```
 # Fetch LFS objects (your model .pkl files)
 git lfs pull
 
